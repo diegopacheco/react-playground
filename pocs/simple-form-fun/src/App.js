@@ -11,7 +11,7 @@ const Form = () => (
       Answer to life, the universe, and everything: 
       <input type="number" value={42} style={{
         width: "40px",
-        textAlign:"center"
+        textAlign: "center"
         }}  />
     </label>
   </form>
