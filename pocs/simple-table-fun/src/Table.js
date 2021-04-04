@@ -4,8 +4,8 @@ const TableHead = () => {
         return(
             <Fragment>
              <thead>
-                <p>Movies</p>         
-                <tr>
+                <p style={{"textAlign": "left"}}>&nbsp;Movies</p>         
+                <tr style={{background: "gray"}}  >
                     <th>Tittle</th>
                     <th>Year</th>
                     <th>Cover</th>
@@ -19,7 +19,12 @@ const TableBody = props => {
 
     const rows = props.movies.map( (row, index) => {
         return(
-            <tr key={index} >
+            <tr id="movies-row" key={index} 
+               style={ 
+                   index % 2? { background : "#BEBEBE" }:
+                   { background : "#E8E8E8" 
+                }}  
+            >
                 <td><p>{row.tittle}</p></td>
                 <td><p>{row.year}</p></td>
                 <td><img src={row.cover} 

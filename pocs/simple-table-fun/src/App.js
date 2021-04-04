@@ -21,13 +21,18 @@ function App() {
         year: '2019',
         cover: 'https://multversogeek.com.br/wp-content/uploads/2019/12/riseskywalker01-1170x658.jpg',
       },
+      {
+        tittle: 'Tomb Raider',
+        year: '2018',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/2/20/Tomb_raider_2018_poster.jpg',
+      },
   ];
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        Simple Table
+        Simple Novies <br/> Table
       </header>
       <main>
         <Table movies={movies} />
