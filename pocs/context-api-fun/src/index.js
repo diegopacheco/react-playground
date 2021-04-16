@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeContextProvider } from "./themeContext";
 
 ReactDOM.render(
+  <ThemeContextProvider>
     <App />
-  ,
+  </ThemeContextProvider>,
   document.getElementById('root')
 );
 
