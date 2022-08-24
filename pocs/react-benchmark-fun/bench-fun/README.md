@@ -1,3 +1,14 @@
+In order to work I had to configure babel presets.
+## How to run
+```bash
+npm install -g react-benchmark
+react-benchmark benchmark.js
+```
+## Result
+```bash
+4,748 ops/sec ±6.69% (48 runs sampled)
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
