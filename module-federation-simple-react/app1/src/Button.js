@@ -6,6 +6,6 @@ const style = {
   padding: 12,
 };
 
-const Button = () => <button style={style}>App 1 Button</button>;
+const Button = () => <button style={style}>App 1 Button(React 16)</button>;
 
 export default Button;
