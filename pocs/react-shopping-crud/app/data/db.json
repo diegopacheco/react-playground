@@ -1,11 +1,6 @@
 {
   "items": [
     {
-      "id": "1",
-      "checked": false,
-      "item": "Biscuit"
-    },
-    {
       "id": "2",
       "checked": false,
       "item": "Toiletries"

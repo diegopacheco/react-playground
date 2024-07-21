@@ -11,7 +11,7 @@ const Content: React.FC<ContentProps> = ({ list, handleCheck, handleDelete }) =>
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
       <ul style={{ listStyleType: '', padding: 0, margin: 0 }}>
         {list.map((item) => (
-          <li key={item.id} style={{ margin: '5px 0', textAlign: 'left' }}>{item.item}</li>
+          <><li key={item.id} style={{ margin: '5px 0', textAlign: 'left' }}>{item.item}</li> <button onClick={() => handleDelete(item.id)}>x</button></>
         ))}
       </ul>
     </div>
