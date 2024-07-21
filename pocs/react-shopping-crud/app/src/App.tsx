@@ -26,11 +26,11 @@ function App() {
 
   // Add new Item to the list
   const addItems = async (item: string) => {
-      const id = list.length ? list[list.length - 1].id + 1 : 1;
-      const theNewItem = {
-        id,
-        checked: false,
-        item,
+    const id = list.length ? list[list.length - 1].id + 1 : 1;
+    const theNewItem = {
+      id,
+      checked: false,
+      item,
     };
 
     const listItem = [...list, theNewItem];

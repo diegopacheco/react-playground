@@ -6,18 +6,13 @@
       "item": "Toiletries"
     },
     {
-      "id": "3",
-      "checked": false,
-      "item": "Milk"
-    },
-    {
       "id": "4",
       "checked": false,
       "item": "Sugar"
     },
     {
       "id": "5",
-      "checked": false,
+      "checked": true,
       "item": "Kitchen utensils"
     },
     {

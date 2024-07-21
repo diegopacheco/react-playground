@@ -11,7 +11,13 @@ const Content: React.FC<ContentProps> = ({ list, handleCheck, handleDelete }) =>
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
       <ul style={{ listStyleType: 'none', padding: 0, margin: 0, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {list.map((item) => (
-          <li key={item.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', width: '20%' }}>
+          <li key={item.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', width: '80%' }}>
+            <input
+              type="checkbox"
+              checked={item.checked}
+              onChange={() => handleCheck(item.id)}
+              style={{ marginRight: '10px' }}
+            />
             <span style={{ textAlign: 'left', width: '100%' }}>{item.item}</span>
             <button onClick={() => handleDelete(item.id)} style={{ marginLeft: 'auto' }}>x</button>
           </li>
