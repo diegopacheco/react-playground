@@ -1,8 +1,8 @@
 import { useRef } from "react";
+import { FormEventHandler } from "react";
 
-const AddList = ({ newItem, setNewItem, handleSubmit }) => {
-  const inputRef = useRef();
-
+const AddList = ({ newItem, setNewItem, handleSubmit }: { newItem: string, setNewItem: Function, handleSubmit: FormEventHandler<HTMLFormElement> }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <form className="addForm" onSubmit={handleSubmit}>
       <label htmlFor="addItem">Add Item</label>
@@ -19,7 +19,7 @@ const AddList = ({ newItem, setNewItem, handleSubmit }) => {
       <button
         type="submit"
         aria-label="Add Item"
-        onClick={() => inputRef.current.focus()}
+        onClick={() => inputRef.current && inputRef.current.focus()}
       >
         <h3>+</h3>
       </button>

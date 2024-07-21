@@ -1,4 +1,4 @@
-const Content = ({ list, handleCheck, handleDelete }) => {
+const Content = ({ list }: { list: any[] }, handleCheck: (id: number) => void, handleDelete: (id: number) => void) => {
     return (
       <main className="content">
         {list.length ? (

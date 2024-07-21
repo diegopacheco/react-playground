@@ -7,63 +7,48 @@ import { useState, useEffect } from "react";
 
 function App() {
   const API_url = "http://localhost:3500/items";
-
   const [list, setList] = useState([]);
-
   const [newItem, setNewItem] = useState("");
-
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(API_url);
-
         if (!response.ok) throw Error("Error Message");
-
         const listItem = await response.json();
-
         setList(listItem);
-
         setError(null);
       } catch (error) { }
     };
-
     fetchData();
   }, []);
 
   // Add new Item to the list
   const addItems = async (item) => {
     const id = list.length ? list[list.length - 1].id + 1 : 1;
-
     const theNewItem = {
       id,
-
       checked: false,
-
       item,
     };
 
     const listItem = [...list, theNewItem];
-
     setList(listItem);
 
     const postOptions = {
       method: "POST",
-
       headers: {
         "content-Type": "application/json",
       },
-
       body: JSON.stringify(theNewItem),
     };
 
-    const result = await request(API_url, postOptions);
-    if (result) setError(result);
+    const result = await fetch(API_url, postOptions);
+    if (result) setError(null);
   };
 
   //  Create a function to update the checked property
-
   const handleCheck = async (id) => {
     const listItem = list.map((item) =>
       item.id === id
@@ -117,33 +102,31 @@ function App() {
 
   //  create a function to prevent default submit action
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
+  addItems(newItem);
+  setNewItem("");
+};
 
-    addItems(newItem);
+return (
+  <div className="App">
+    <Top />
 
-    setNewItem("");
-  };
+    <AddList
+      newItem={newItem}
+      setNewItem={setNewItem}
+      handleSubmit={handleSubmit}
+    />
 
-  return (
-    <div className="App">
-      <Top />
+    <Content
+      list={list}
+      handleCheck={handleCheck}
+      handleDelete={handleDelete}
+    />
 
-      <AddList
-        newItem={newItem}
-        setNewItem={setNewItem}
-        handleSubmit={handleSubmit}
-      />
-
-      <Content
-        list={list}
-        handleCheck={handleCheck}
-        handleDelete={handleDelete}
-      />
-
-      <Footer list={list} />
-    </div>
-  );
+    <Footer list={list} />
+  </div>
+);
 }
 
 export default App;

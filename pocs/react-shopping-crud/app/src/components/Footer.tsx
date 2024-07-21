@@ -1,4 +1,4 @@
-const Footer = ({ list }) => {
+const Footer = ({ list }: { list: any[] }) => {
     return (
       <footer className="footer">
         <h3>
