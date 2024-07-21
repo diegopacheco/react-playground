@@ -99,17 +99,18 @@ function App() {
   return (
     <div className="App">
       <Top />
-      <AddList
-        newItem={newItem}
-        setNewItem={setNewItem}
-        handleSubmit={handleSubmit}
-      />
       <Content
         list={list}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
       <Footer list={list} />
+      <br/>
+      <AddList
+        newItem={newItem}
+        setNewItem={setNewItem}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
 }

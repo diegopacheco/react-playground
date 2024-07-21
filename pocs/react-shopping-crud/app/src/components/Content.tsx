@@ -8,10 +8,12 @@ type ContentProps = {
 
 const Content: React.FC<ContentProps> = ({ list, handleCheck, handleDelete }) => {
   return (
-    <div>
-      {list.map((item) => (
-        <div key={item.id}>{item.item}</div>
-      ))}
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+      <ul style={{ listStyleType: '', padding: 0, margin: 0 }}>
+        {list.map((item) => (
+          <li key={item.id} style={{ margin: '5px 0', textAlign: 'left' }}>{item.item}</li>
+        ))}
+      </ul>
     </div>
   );
 };
