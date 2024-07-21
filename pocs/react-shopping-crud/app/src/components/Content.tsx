@@ -18,7 +18,9 @@ const Content: React.FC<ContentProps> = ({ list, handleCheck, handleDelete }) =>
               onChange={() => handleCheck(item.id)}
               style={{ marginRight: '10px' }}
             />
-            <span style={{ textAlign: 'left', width: '100%' }}>{item.item}</span>
+            <span style={{ textAlign: 'left', width: '100%', textDecoration: item.checked ? 'line-through' : 'none' }}>
+              {item.item}
+            </span>
             <button onClick={() => handleDelete(item.id)} style={{ marginLeft: 'auto' }}>x</button>
           </li>
         ))}

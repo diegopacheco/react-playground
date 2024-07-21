@@ -58,7 +58,11 @@ function App() {
         }
         : item
     );
-    setList(listItem);
+    setList((prevList) =>
+      prevList.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item
+      )
+    );
     const myitem = listItem.filter((list) => list.id === id);
 
     const updateOptions = {

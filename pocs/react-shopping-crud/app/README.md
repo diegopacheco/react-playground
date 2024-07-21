@@ -1,3 +1,7 @@
+## Result
+
+<img src="result-ui.png" alt="result-ui" width="100%"/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

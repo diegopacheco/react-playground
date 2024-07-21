@@ -2,23 +2,28 @@
   "items": [
     {
       "id": "2",
-      "checked": false,
+      "checked": true,
       "item": "Toiletries"
     },
     {
       "id": "4",
-      "checked": false,
+      "checked": true,
       "item": "Sugar"
     },
     {
       "id": "5",
-      "checked": true,
+      "checked": false,
       "item": "Kitchen utensils"
     },
     {
       "id": "51",
       "checked": false,
       "item": "Banana"
+    },
+    {
+      "id": "511",
+      "checked": false,
+      "item": "Steak 2x"
     }
   ]
 }
