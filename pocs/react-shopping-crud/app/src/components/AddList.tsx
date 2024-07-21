@@ -21,7 +21,7 @@ const AddList = ({ newItem, setNewItem, handleSubmit }: { newItem: string, setNe
         aria-label="Add Item"
         onClick={() => inputRef.current && inputRef.current.focus()}
       >
-        <h3>+</h3>
+        <label>+</label>
       </button>
     </form>
   );

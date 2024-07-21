@@ -1,29 +1,34 @@
 {
-    "items": [
-      {
-        "id": 1,
-        "checked": false,
-        "item": "Biscuit"
-      },
-      {
-        "id": 2,
-        "checked": false,
-        "item": "Toiletries"
-      },
-      {
-        "id": 3,
-        "checked": false,
-        "item": "Milk"
-      },
-      {
-        "id": 4,
-        "checked": false,
-        "item": "Sugar"
-      },
-      {
-        "id": 5,
-        "checked": false,
-        "item": "Kitchen utensils"
-      }
-    ]
-  }
+  "items": [
+    {
+      "id": "1",
+      "checked": false,
+      "item": "Biscuit"
+    },
+    {
+      "id": "2",
+      "checked": false,
+      "item": "Toiletries"
+    },
+    {
+      "id": "3",
+      "checked": false,
+      "item": "Milk"
+    },
+    {
+      "id": "4",
+      "checked": false,
+      "item": "Sugar"
+    },
+    {
+      "id": "5",
+      "checked": false,
+      "item": "Kitchen utensils"
+    },
+    {
+      "id": "51",
+      "checked": false,
+      "item": "banana"
+    }
+  ]
+}
