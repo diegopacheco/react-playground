@@ -1,38 +1,19 @@
-const Content = ({ list }: { list: any[] }, handleCheck: (id: number) => void, handleDelete: (id: number) => void) => {
-    return (
-      <main className="content">
-        {list.length ? (
-          <ul>
-            {list.map((item) => {
-              return (
-                <li className="list" key={item.id}>
-                  <input
-                    onChange={() => handleCheck(item.id)}
-                    type="checkbox"
-                    checked={item.checked}
-                  />
-  
-                  <label onDoubleClick={() => handleCheck(item.id)}>
-                    <h3>{item.item}</h3>
-                  </label>
-  
-                  <button onClick={() => handleDelete(item.id)}>X</button>
-                </li>
-              );
-            })}
-          </ul>
-        ) : (
-          <h3
-            style={{
-              marginTop: "2rem",
-            }}
-          >
-            {" "}
-            Empty List{" "}
-          </h3>
-        )}
-      </main>
-    );
-  };
-  
-  export default Content;
+import React from "react";
+
+type ContentProps = {
+  list: { id: number; checked: boolean; item: string }[];
+  handleCheck: (id: number) => Promise<void>;
+  handleDelete: (id: number) => Promise<void>;
+};
+
+const Content: React.FC<ContentProps> = ({ list, handleCheck, handleDelete }) => {
+  return (
+    <div>
+      {list.map((item) => (
+        <div key={item.id}>{item.item}</div>
+      ))}
+    </div>
+  );
+};
+
+export default Content;
