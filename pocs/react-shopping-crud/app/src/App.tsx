@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const API_url = "http://localhost:3500/items";
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<{ id: number; checked: boolean; item: string }[]>([]);
   const [newItem, setNewItem] = useState("");
   const [, setError] = useState(null);
 
@@ -25,12 +25,12 @@ function App() {
   }, []);
 
   // Add new Item to the list
-  const addItems = async (item) => {
-    const id = list.length ? list[list.length - 1].id + 1 : 1;
-    const theNewItem = {
-      id,
-      checked: false,
-      item,
+  const addItems = async (item: string) => {
+      const id = list.length ? list[list.length - 1].id + 1 : 1;
+      const theNewItem = {
+        id,
+        checked: false,
+        item,
     };
 
     const listItem = [...list, theNewItem];
@@ -49,84 +49,69 @@ function App() {
   };
 
   //  Create a function to update the checked property
-  const handleCheck = async (id) => {
+  const handleCheck = async (id: number) => {
     const listItem = list.map((item) =>
       item.id === id
         ? {
           ...item,
-
           checked: !item.checked,
         }
         : item
     );
-
     setList(listItem);
-
     const myitem = listItem.filter((list) => list.id === id);
 
     const updateOptions = {
       method: "PATCH",
-
       headers: {
         "content-Type": "application/json",
       },
-
       body: JSON.stringify({
         checked: myitem[0].checked,
       }),
     };
 
     const reqUrl = `${API_url}/${id}`;
-
-    const result = await request(reqUrl, updateOptions);
-
-    if (result) setError(result);
+    const result = await fetch(reqUrl, updateOptions);
+    if (result) setError(null);
   };
 
   //  create a function to delete an item
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: number) => {
     const listItem = list.filter((item) => item.id !== id);
-
     setList(listItem);
-
     const deleteOptions = {
       method: "DELETE",
     };
 
     const reqUrl = `${API_url}/${id}`;
-
-    const result = await request(reqUrl, deleteOptions);
-
-    if (result) setError(result);
+    const result = await fetch(reqUrl, deleteOptions);
+    if (result) setError(null);
   };
 
   //  create a function to prevent default submit action
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    addItems(newItem);
+    setNewItem("");
+  };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  addItems(newItem);
-  setNewItem("");
-};
-
-return (
-  <div className="App">
-    <Top />
-
-    <AddList
-      newItem={newItem}
-      setNewItem={setNewItem}
-      handleSubmit={handleSubmit}
-    />
-
-    <Content
-      list={list}
-      handleCheck={handleCheck}
-      handleDelete={handleDelete}
-    />
-
-    <Footer list={list} />
-  </div>
-);
+  return (
+    <div className="App">
+      <Top />
+      <AddList
+        newItem={newItem}
+        setNewItem={setNewItem}
+        handleSubmit={handleSubmit}
+      />
+      <Content
+        list={list}
+        handleCheck={handleCheck}
+        handleDelete={handleDelete}
+      />
+      <Footer list={list} />
+    </div>
+  );
 }
 
 export default App;
