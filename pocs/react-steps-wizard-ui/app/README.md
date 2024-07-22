@@ -1,17 +1,30 @@
 # Result
 
-Step 1
-<br/>
-<img src="step-1.png" alt="Step 1" width="200"/>
+<table>
+    <tr>
+        <td>
+            Step 1 <br/>
+            <img src="step-1.png" alt="Step 1" width="200" height="270" />
+        </td>
+        <td>
+            Step 2 <br/>
+            <img src="step-2.png" alt="Step 2" width="200" height="270" />
+        </td>
+        <td>
+            Step 3 <br/>
+            <img src="step-3.png" alt="Step 3" width="200" height="270"/>
+        </td>
+    </tr>
+</table>
 
-Step 2
-<br/>
-<img src="step-2.png" alt="Step 2" width="200"/>
+## How it works?
 
-Step 3
-<br/>
-<img src="step-3.png" alt="Step 3" width="200"/>
-
+* There are multiple components
+* Components: Header, Footer, ChoseFoodStep, UserDetailsStep and ConfirmationStep.
+* Project is using React with Functional Components and Typescript
+* Steps data is being stored on the Session Storage
+* You can go next or go back, no data is being lost.
+* No Redux, No complex state management, just simple React with Typescript.
 
 # Getting Started with Create React App
 
