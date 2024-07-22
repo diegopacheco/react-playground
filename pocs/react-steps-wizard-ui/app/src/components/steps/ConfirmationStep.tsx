@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 interface ConfirmationStepProps {
   selectedItems: string[];
@@ -9,24 +9,6 @@ interface ConfirmationStepProps {
 }
 
 const ConfirmationStep: React.FC<ConfirmationStepProps> = ({ selectedItems, email, address, onConfirm, onBack }) => {
-
-  const [,setEmail] = useState('');
-  const [,setAddress] = useState('');
-
-  // Restore
-  useEffect(() => {
-    const savedEmail = sessionStorage.getItem('userEmail');
-    const savedAddress = sessionStorage.getItem('userAddress');
-    if (savedEmail) setEmail(savedEmail);
-    if (savedAddress) setAddress(savedAddress);
-  }, []);
-
-  // Save
-  useEffect(() => {
-    sessionStorage.setItem('userEmail', email);
-    sessionStorage.setItem('userAddress', address);
-  }, [email, address]);
-
   return (
     <div style={{
       position: 'absolute', top: 200, textAlign: 'center',
