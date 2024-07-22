@@ -38,6 +38,7 @@ function App() {
           <div>
             <h1>Using React Context API</h1>
             <MyConsumer />
+            <MyConsumer />
           </div>
         </MyProvider>
       </header>
