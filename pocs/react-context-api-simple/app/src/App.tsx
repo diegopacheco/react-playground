@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import './App.css';
+import { count } from 'console';
 
 // Step 1: Define Context
 const MyContext = createContext<any>(null);
@@ -7,13 +8,8 @@ const MyContext = createContext<any>(null);
 // Create Provider Component
 const MyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, setState] = useState({ counter: 0, message: 'Initial State' });
-
-  const setCounter = (counter: number) => {
-    setState((prevState) => ({ ...prevState, counter }));
-  };
-
   return (
-    <MyContext.Provider value={{ state, setCounter }}>
+    <MyContext.Provider value={{ state, setState }}>
       {children}
     </MyContext.Provider>
   );
@@ -26,7 +22,9 @@ const MyConsumer: React.FC = () => (
       <div>
         <p>{context.state.message}</p>
         <p>{context.state.counter}</p>
-        <button onClick={() => context.setCounter(context.state.counter + 1)}>Update State</button>
+        <button onClick={() => {
+            context.setState({ message: 'State Updated', counter: context.state.counter + 1 })
+        }}>Update State</button>
       </div>
     )}
   </MyContext.Consumer>
