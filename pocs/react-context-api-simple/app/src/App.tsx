@@ -1,53 +1,36 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import './App.css';
 
-// Step 1: Create a context
-interface ContextValue {
-  children: React.ReactNode;
-  state: {
-    message: string;
-  };
-  setMessage: (newMessage: string) => void;
-}
-const MyContext = React.createContext<ContextValue>({ 
-  children: null, 
-  state: { message: "" },
-  setMessage: (newMessage: string) => {}
-});
+// Step 1: Define Context
+const MyContext = createContext<any>(null);
 
-// Step 2: Create a provider component
-class MyProvider extends React.Component<{ children: React.ReactNode }> {
-  state = {
-    message: "Hello from context!"
-  };
-  render() {
-    return (
-      <MyContext.Provider value={{
-        children: this.props.children,
-        state: this.state,
-        setMessage: (newMessage: string) => this.setState({ message: newMessage })
-      }}>
-        {this.props.children}
-      </MyContext.Provider>
-    );
-  }
-}
+// Create Provider Component
+const MyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [state, setState] = useState({ counter: 0, message: 'Initial State' });
 
-// Step 3: Create a consumer component
-class MyConsumer extends React.Component {
-  render() {
-    return (
-      <MyContext.Consumer>
-        {(context: any) => (
-          <div>
-            <p>{context.state.message}</p>
-            <button onClick={() => context.setMessage("Updated message from context!")}>Update Message</button>
-          </div>
-        )}
-      </MyContext.Consumer>
-    );
-  }
-}
+  const setCounter = (counter: number) => {
+    setState((prevState) => ({ ...prevState, counter }));
+  };
+
+  return (
+    <MyContext.Provider value={{ state, setCounter }}>
+      {children}
+    </MyContext.Provider>
+  );
+};
+
+// Consumer Component for demonstration (could also use useContext hook in functional components)
+const MyConsumer: React.FC = () => (
+  <MyContext.Consumer>
+    {(context: any) => (
+      <div>
+        <p>{context.state.message}</p>
+        <p>{context.state.counter}</p>
+        <button onClick={() => context.setCounter(context.state.counter + 1)}>Update State</button>
+      </div>
+    )}
+  </MyContext.Consumer>
+);
 
 function App() {
   return (
