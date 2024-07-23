@@ -79,12 +79,14 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ style }) => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 0 }}>
             <div style={{ marginBottom: '5px' }}>
-                <button style={{ margin: '10px', padding: '15px', background: 'url(/pencil.png) no-repeat center', backgroundSize: 'cover'}}
-                    onClick={() => setDrawingStyle('pencil')}>_______</button>
-                <button style={{margin: '10px', padding: '15px', background: 'url(/brush.png) no-repeat center', backgroundSize: 'cover'}}
-                    onClick={() => setDrawingStyle('brush')}>Brush</button>
-                <button style={{margin: '10px', padding: '15px', background: 'url(/spray.png) no-repeat center', backgroundSize: 'cover'}}
-                    onClick={() => setDrawingStyle('spray')}>Spray</button>
+                <label>*</label>
+                <button style={{ margin: '10px', padding: '15px', background: 'url(/pencil.png) no-repeat center', backgroundSize: '30px 30px'}}
+                    onClick={() => setDrawingStyle('pencil')}></button>
+                <button style={{margin: '10px', padding: '15px', background: 'url(/brush.png) no-repeat center', backgroundSize: '30px 30px'}}
+                    onClick={() => setDrawingStyle('brush')}></button>
+                <button style={{margin: '10px', padding: '15px', background: 'url(/spray.png) no-repeat center', backgroundSize: '30px 30px'}}
+                    onClick={() => setDrawingStyle('spray')}></button>
+                <label>*</label>
                 <button style={{ margin: '10px', padding: '15px', backgroundColor: 'blue', }}
                     onClick={() => changeColor('blue')}></button>
                 <button style={{ margin: '10px', padding: '15px', backgroundColor: 'white' }}
@@ -97,6 +99,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ style }) => {
                     onClick={() => changeColor('red')}></button>
                 <button style={{ margin: '10px', padding: '15px',backgroundColor: 'yellow' }}
                     onClick={() => changeColor('yellow')}></button>
+                <label>*</label>
                 <button style={{ margin: '10px', padding: '15px',  background: 'url(/eraser.jpeg) no-repeat center', backgroundSize: 'cover' }}
                     onClick={handleClearCanvas}>______________</button>
             </div>
