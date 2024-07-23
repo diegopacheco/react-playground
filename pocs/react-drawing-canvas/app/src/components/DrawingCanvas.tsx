@@ -80,11 +80,11 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ style }) => {
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 0 }}>
             <div style={{ marginBottom: '5px' }}>
                 <label>*</label>
-                <button style={{ margin: '10px', padding: '15px', background: 'url(/pencil.png) no-repeat center', backgroundSize: '30px 30px'}}
+                <button style={{ margin: '10px', padding: '15px', backgroundColor: 'transparent', background: 'url(/pencil.png) no-repeat center', backgroundSize: '30px 30px'}}
                     onClick={() => setDrawingStyle('pencil')}></button>
-                <button style={{margin: '10px', padding: '15px', background: 'url(/brush.png) no-repeat center', backgroundSize: '30px 30px'}}
+                <button style={{margin: '10px', padding: '15px', backgroundColor: 'transparent', background: 'url(/brush.png) no-repeat center', backgroundSize: '30px 30px'}}
                     onClick={() => setDrawingStyle('brush')}></button>
-                <button style={{margin: '10px', padding: '15px', background: 'url(/spray.png) no-repeat center', backgroundSize: '30px 30px'}}
+                <button style={{margin: '10px', padding: '15px', backgroundColor: 'transparent', background: 'url(/spray.png) no-repeat center', backgroundSize: '30px 30px'}}
                     onClick={() => setDrawingStyle('spray')}></button>
                 <label>*</label>
                 <button style={{ margin: '10px', padding: '15px', backgroundColor: 'blue', }}
@@ -100,7 +100,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ style }) => {
                 <button style={{ margin: '10px', padding: '15px',backgroundColor: 'yellow' }}
                     onClick={() => changeColor('yellow')}></button>
                 <label>*</label>
-                <button style={{ margin: '10px', padding: '15px',  background: 'url(/eraser.jpeg) no-repeat center', backgroundSize: 'cover' }}
+                <button style={{ margin: '10px', padding: '15px',  backgroundColor: 'transparent', background: 'url(/eraser.jpeg) no-repeat center', backgroundSize: 'cover' }}
                     onClick={handleClearCanvas}>______________</button>
             </div>
             <canvas
