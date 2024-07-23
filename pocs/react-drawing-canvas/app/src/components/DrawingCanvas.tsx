@@ -38,7 +38,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ style }) => {
             case 'brush':
                 context.lineWidth = 10;
                 context.lineCap = 'round';
-                context.strokeStyle = color; //`rgba(${hexToRgb(color)}, 0.5)`;
+                context.strokeStyle = color;
                 break;
             case 'spray':
                 context.fillStyle = color;
@@ -53,21 +53,6 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ style }) => {
         context.lineTo(offsetX, offsetY);
         context.stroke();
     };
-
-    function hexToRgb(hex: string | any[]) {
-        let r = 0, g = 0, b = 0;
-        if (hex.length === 4) {
-            r = parseInt(hex[1] + hex[1], 16);
-            g = parseInt(hex[2] + hex[2], 16);
-            b = parseInt(hex[3] + hex[3], 16);
-        }
-        else if (hex.length === 7) {
-            r = parseInt(hex[1] + hex[2], 16);
-            g = parseInt(hex[3] + hex[4], 16);
-            b = parseInt(hex[5] + hex[6], 16);
-        }
-        return `${r}, ${g}, ${b}`;
-    }
 
     const stopDrawing = () => {
         const context = (canvasRef.current as HTMLCanvasElement | null)?.getContext('2d');
@@ -94,9 +79,12 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ style }) => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 0 }}>
             <div style={{ marginBottom: '5px' }}>
-            <button onClick={() => setDrawingStyle('pencil')}>Pencil</button>
-            <button onClick={() => setDrawingStyle('brush')}>Brush</button>
-            <button onClick={() => setDrawingStyle('spray')}>Spray</button>
+                <button style={{ margin: '10px', padding: '15px', background: 'url(/pencil.png) no-repeat center', backgroundSize: 'cover'}}
+                    onClick={() => setDrawingStyle('pencil')}>_______</button>
+                <button style={{margin: '10px', padding: '15px', background: 'url(/brush.png) no-repeat center', backgroundSize: 'cover'}}
+                    onClick={() => setDrawingStyle('brush')}>Brush</button>
+                <button style={{margin: '10px', padding: '15px', background: 'url(/spray.png) no-repeat center', backgroundSize: 'cover'}}
+                    onClick={() => setDrawingStyle('spray')}>Spray</button>
                 <button style={{ margin: '10px', padding: '15px', backgroundColor: 'blue', }}
                     onClick={() => changeColor('blue')}></button>
                 <button style={{ margin: '10px', padding: '15px', backgroundColor: 'white' }}
