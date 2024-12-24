@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     const subscription = store.subscribe((snapshot) => {
-      console.log('Store updated:', snapshot); // Debugging
+      console.log('Store updated:', snapshot);
       setCount(snapshot.context.count);
       setName(snapshot.context.name);
     });
