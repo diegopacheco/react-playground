@@ -4,15 +4,24 @@ import './App.css';
 import store from './MyStore';
 
 function App() {
-  const [count, setCount] = useState(store.getSnapshot().count);
-  const [name, setName] = useState(store.getSnapshot().name);
+  // Initialize state from the store's context
+  const [count, setCount] = useState(store.getSnapshot().context.count);
+  const [name, setName] = useState(store.getSnapshot().context.name);
 
   useEffect(() => {
-    const subscription = store.subscribe((ctx) => {
-      setCount(ctx.count);
-      setName(ctx.name);
+    const subscription = store.subscribe((snapshot) => {
+      console.log('Store updated:', snapshot); // Debugging
+      setCount(snapshot.context.count);
+      setName(snapshot.context.name);
     });
-    return () => subscription.unsubscribe();
+
+    return () => {
+      if (subscription && typeof subscription.unsubscribe === 'function') {
+        subscription.unsubscribe();
+      } else {
+        console.warn('Subscription does not have an unsubscribe method');
+      }
+    };
   }, []);
 
   const increment = () => store.send({ type: 'inc' });
