@@ -16,3 +16,8 @@ test('[CSS-TEST] h1 has underline class', () => {
   expect(h1Element).toHaveClass('text-3xl');
   expect(h1Element).toHaveClass('font-bold');
 });
+
+test('matches snapshot', () => {
+  const { asFragment } = render(<App />);
+  expect(asFragment()).toMatchSnapshot();
+});

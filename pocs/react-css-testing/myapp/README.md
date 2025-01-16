@@ -42,6 +42,61 @@ Time:        0.974 s, estimated 2 s
 Ran all test suites.
 ```
 
+### CSS Tests with Jest Snapshots
+
+Snapshot tests works by rendering the component and then taking a snapshot of the rendered component. The snapshot is a JSON representation of the rendered component. The snapshot is saved in a file with the same name as the test file.
+
+This saves to do many assetions in a single test. The snapshot is compared with the previous snapshot. If the snapshot is different, the test will fail.
+
+WE can test CSS with this. The snapshot will contain the CSS classes.
+
+```javascript
+test('matches snapshot', () => {
+  const { asFragment } = render(<App />);
+  expect(asFragment()).toMatchSnapshot();
+});
+```
+
+### Results
+
+```
+ PASS  src/App.test.js
+  ✓ renders learn react link (48 ms)
+  ✓ [CSS-TEST] h1 has underline class (7 ms)
+  ✓ matches snapshot (15 ms)
+
+ › 1 snapshot written.
+Snapshot Summary
+ › 1 snapshot written from 1 test suite.
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   1 written, 1 total
+Time:        1.421 s
+Ran all test suites related to changed files.
+
+Watch Usage
+ › Press a to run all tests.
+ › Press f to run only failed tests.
+ › Press q to quit watch mode.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a test name regex pattern.
+ › Press Enter to trigger a test run.
+
+ PASS  src/App.test.js
+  ✓ renders learn react link (13 ms)
+  ✓ [CSS-TEST] h1 has underline class (10 ms)
+  ✓ matches snapshot (8 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   1 passed, 1 total
+Time:        0.163 s, estimated 1 s
+Ran all test suites.
+
+Watch Usage: Press w to show more.
+```
+
 ### CSS Test with Playwright
 
 Playwright is a Node library to automate the Chromium, WebKit and Firefox browsers. It enables cross-browser web automation. Playwright will run the tests in the browser and check the CSS classes.
