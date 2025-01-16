@@ -1,4 +1,7 @@
-### CSS Tests
+### CSS Tests with Jest
+
+Jest CSS tests with React and Tailwind CSS. Works like this
+react-testing-library is used to render the component and then we can check the CSS classes.
 
 ```javascript
 import { render, screen } from '@testing-library/react';
@@ -39,4 +42,36 @@ Time:        0.974 s, estimated 2 s
 Ran all test suites.
 ```
 
+### CSS Test with Playwright
 
+Playwright is a Node library to automate the Chromium, WebKit and Firefox browsers. It enables cross-browser web automation. Playwright will run the tests in the browser and check the CSS classes.
+Rendering the real browser and checking the CSS classes.
+
+Setup Playwright
+```bash
+sudo apt-get install libavif13 
+npx playwright install
+```
+
+Run
+```bash
+./run-playwright-tests.sh
+```
+
+### Results
+
+```
+Running 1 test using 1 worker
+  1 passed (3.8s)
+
+To open last HTML report run:
+
+  npx playwright show-report
+
+❯ npx playwright show-report
+
+
+  Serving HTML report at http://localhost:9323. Press Ctrl+C to quit.
+^C
+```
+<img src="playwrite-test-results.png" width="100%">
