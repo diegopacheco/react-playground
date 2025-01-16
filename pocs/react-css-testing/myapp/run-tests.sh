@@ -1,3 +1,4 @@
 #!/bin/bash
 
-WATCHMAN_DISABLE=true npm test -- --watchAll=false --runInBand --detectOpenHandles
+export USE_WATCHMAN=false
+npm test -- --watchAll=false --runInBand --detectOpenHandles
