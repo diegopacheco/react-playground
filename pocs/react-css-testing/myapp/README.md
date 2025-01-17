@@ -130,3 +130,23 @@ To open last HTML report run:
 ^C
 ```
 <img src="playwrite-test-results.png" width="100%">
+
+
+### Cypress
+
+We can do E2E Tests end also CSS tests with Cypress. Cypress is tool where we can run tests on the browers: Chrome, Firefox, Electron, etc.
+We render the page and do assertions.
+
+Terminal #1
+```
+npm run start
+```
+
+Terminal #2
+```bash
+./run-cypress-tests.sh
+```
+
+### Results
+
+<img src="cypress-e2e-working.png" width="100%">
