@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.stat {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.board {
+  display: grid;
+  margin: 20px auto;
+  border: 3px solid #333;
+  background: #1a1a1a;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cell {
+  background: #2a2a2a;
+  border: 1px solid #333;
+}
+
+.snake-head {
+  background: #00ff00;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.snake-body {
+  background: #00cc00;
+  border-radius: 3px;
+}
+
+.food {
+  background: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.meteor {
+  background: #ff8800;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ff8800;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.start-screen {
+  padding: 40px;
+}
+
+.start-button, .restart-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.5em;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.start-button:hover, .restart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.start-button:active, .restart-button:active {
+  transform: translateY(0);
+}
+
+.instructions {
+  margin-top: 30px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.instructions p {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+.game-over {
+  padding: 40px;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.game-over h2 {
+  color: #d32f2f;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.game-over p {
+  font-size: 1.3em;
+  margin: 15px 0;
+  color: #333;
+}
